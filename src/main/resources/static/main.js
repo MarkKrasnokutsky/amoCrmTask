@@ -1,22 +1,19 @@
 document.addEventListener("DOMContentLoaded", () => {
 let startTime = new Date().valueOf();
     document.getElementById('application-form').addEventListener('submit', function(event) {
-        event.preventDefault(); // предотвращаем стандартное поведение формы
+        event.preventDefault();
 
-        // Извлекаем данные из формы и сохраняем в переменные
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
         const phone = document.getElementById('phone').value;
         const price = document.getElementById('price').value;
 
-        // Создаем объект с данными для отправки
         const dataContact = {
             name: name,
             phone: phone,
             email: email
         };
 
-        // Отправляем данные на сервер
         fetch('http://localhost:8080/api/v1/contact/add', {
             method: 'POST',
             headers: {
@@ -49,8 +46,8 @@ let startTime = new Date().valueOf();
                     body: JSON.stringify(dataLead),
                 })
                      .then(response => response.json())
-                     .then(anotherData => {
-                         console.log('Сделка создана:', dataLead);
+                     .then(data => {
+                         console.log('Сделка создана:', data);
                      });
 
                 alert('Заявка успешно отправлена!');
