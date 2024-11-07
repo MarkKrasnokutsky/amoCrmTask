@@ -23,7 +23,7 @@ public class SecurityConfigurator {
                         httpSecurityCorsConfigurer.configurationSource(request -> {
                             CorsConfiguration configuration = new CorsConfiguration();
                             configuration.setAllowedOrigins(Arrays.asList(
-                                    "http://localhost:5173", "http://localhost:8080"));
+                                    "http://localhost:5173", "http://localhost:8080", "http://localhost:63342"));
                             configuration.setAllowedMethods(Arrays.asList("GET","POST","PUT","DELETE", "PATCH"));
                             configuration.setAllowCredentials(true);
                             configuration.setAllowedHeaders(Arrays.asList("Authorization", "Cache-Control", "Content-Type"));
