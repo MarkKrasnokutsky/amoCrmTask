@@ -31,7 +31,7 @@ public class LeadService {
         LeadRequestPayload leadRequestPayload = new LeadRequestPayload();
         leadRequestPayload.setName(leadRequest.getLeadName());
         leadRequestPayload.setPipeline_id(leadRequest.getPipeline_id());
-        leadRequestPayload.setPrice(Long.parseLong(leadRequest.getPrice()));
+        leadRequestPayload.setPrice(leadRequest.getPrice());
 
         LeadRequestPayload.CustomFieldValue customFieldValue = new LeadRequestPayload.CustomFieldValue();
         customFieldValue.setFieldId(2123701L);
