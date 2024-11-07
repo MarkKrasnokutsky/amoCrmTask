@@ -8,6 +8,6 @@ import lombok.Data;
 public class LeadResponse {
     private Long lead_id;
     private String leadName;
-    private String price;
+    private Long price;
 }
 
