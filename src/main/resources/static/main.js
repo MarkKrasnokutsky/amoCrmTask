@@ -10,6 +10,36 @@ document.addEventListener("DOMContentLoaded", () => {
         const phone = document.getElementById('phone').value;
         const price = document.getElementById('price').value;
 
+        const nameRegex = /^[a-zA-Zа-яА-ЯёЁ]{4,40}$/;
+        const phoneRegex = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
+        const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+.[a-zA-Z0-9_-]+$/;
+        const priceRegex = /^d+$/
+
+        if (!name || !email || !phone || !price) {
+            alert("Все поля должны быть заполнены.");
+            return;
+        }
+
+        if (!nameRegex.test(name)) {
+            alert("Имя должно содержать от 4 до 40 букв (латиница или кириллица).");
+            return;
+        }
+
+        if (!phoneRegex.test(phone)) {
+            alert("Введите корректный номер телефона.");
+            return;
+        }
+
+        if (!emailRegex.test(email)) {
+            alert("Введите корректный адрес электронной почты.");
+            return;
+        }
+
+        if (price < 0 || Number.isInteger(price)) {
+            alert("Цена должна быть положительным целым числом.");
+            return;
+        }
+
         const dataContact = {
             name: name,
             phone: phone,
