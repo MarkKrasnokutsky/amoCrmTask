@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
         const nameRegex = /^[a-zA-Zа-яА-ЯёЁ]{4,40}$/;
         const phoneRegex = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
         const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+.[a-zA-Z0-9_-]+$/;
-        const priceRegex = /^d+$/
 
         if (!name || !email || !phone || !price) {
             alert("Все поля должны быть заполнены.");
