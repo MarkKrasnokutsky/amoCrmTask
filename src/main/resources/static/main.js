@@ -1,7 +1,9 @@
+const url = 'http://localhost:8080/api/v1';
+const pipeline_id = 8851754;
 document.addEventListener("DOMContentLoaded", () => {
-let startTime = new Date().valueOf();
-    document.getElementById('application-form').addEventListener('submit', function(event) {
-        event.preventDefault();
+    let startTime = new Date().valueOf();
+    document.getElementById('application-form').addEventListener('submit', function(e) {
+        e.preventDefault();
 
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
@@ -14,7 +16,7 @@ let startTime = new Date().valueOf();
             email: email
         };
 
-        fetch('http://localhost:8080/api/v1/contact/add', {
+        fetch(url + '/contact/add', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -29,16 +31,14 @@ let startTime = new Date().valueOf();
             })
             .then(data => {
                 console.log('Успех:', data);
-                const id = data.body.id;
-                loadedSeconds = (new Date().valueOf() - startTime) / 1000;
                 const dataLead = {
-                    pipeline_id: 8851754,
-                    contact_id: id,
+                    pipeline_id: pipeline_id,
+                    contact_id: data.body.id,
                     leadName: "Сделка с " + name,
                     price: price,
-                    flag: loadedSeconds > 30
+                    flag: ((new Date().valueOf() - startTime) / 1000) > 30
                 }
-                fetch('http://localhost:8080/api/v1/lead/add', {
+                fetch(url + '/lead/add', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
